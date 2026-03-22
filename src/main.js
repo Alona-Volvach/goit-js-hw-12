@@ -14,7 +14,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const searchForm = document.querySelector('.form');
-const searchInput = searchForm.querySelector('input[name="search-text"]'); 
+const searchInput = searchForm.querySelector('input[name="search-text"]');
 
 let searchQuery = '';
 let page = 1;
@@ -22,8 +22,10 @@ let totalHits = 0;
 
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
-  searchQuery = searchInput.value.trim(); 
-  if (!searchQuery) return iziToast.error({ title: 'Error', message: 'Please enter a search term' });
+  searchQuery = searchInput.value.trim();
+  if (!searchQuery) {
+    return iziToast.error({ title: 'Error', message: 'Please enter a search term' });
+  }
 
   page = 1;
   clearGallery();
@@ -32,6 +34,7 @@ searchForm.addEventListener('submit', async e => {
 });
 
 loadMoreBtn.addEventListener('click', async () => {
+  hideLoadMoreButton();
   page += 1;
   await fetchImages();
 });
@@ -61,6 +64,7 @@ async function fetchImages() {
       const cardHeight = galleryContainer.firstElementChild.getBoundingClientRect().height;
       window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
     }
+
   } catch (error) {
     hideLoader();
     iziToast.error({ title: 'Error', message: 'Failed to load images' });
