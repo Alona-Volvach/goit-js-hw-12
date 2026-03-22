@@ -3,7 +3,12 @@ import{r as e}from"./assets/rolldown-runtime-Cq0jCQ29.js";import{n as t,r as n,t
       <a href="${e.largeImageURL}">
         <img src="${e.webformatURL}" alt="${e.tags}" />
       </a>
-      <p>Likes: ${e.likes} | Views: ${e.views}</p>
+      <p>
+        <span>Likes: ${e.likes}</span>
+        <span>Views: ${e.views}</span>
+        <span>Comments: ${e.comments}</span>
+        <span>Downloads: ${e.downloads}</span>
+      </p>
     </li>
-  `).join(``);c.insertAdjacentHTML(`beforeend`,t),d.refresh()}function p(){c.innerHTML=``}function m(){l.classList.remove(`hidden`)}function h(){l.classList.add(`hidden`)}function g(){u.classList.remove(`hidden`)}function _(){u.classList.add(`hidden`)}var v=e(r(),1),y=document.querySelector(`.form`),b=y.querySelector(`input[name="search-text"]`),x=``,S=1,C=0;y.addEventListener(`submit`,async e=>{if(e.preventDefault(),x=b.value.trim(),!x)return v.default.error({title:`Error`,message:`Please enter a search term`});S=1,p(),_(),await w()}),u.addEventListener(`click`,async()=>{S+=1,await w()});async function w(){m();try{let e=await s(x,S);if(h(),e.hits.length===0)return _(),v.default.info({title:`Info`,message:`No results found`});if(f(e.hits),C=e.totalHits,S*15<C?g():(_(),v.default.info({title:`Info`,message:`We're sorry, but you've reached the end of search results.`})),S>1){let e=c.firstElementChild.getBoundingClientRect().height;window.scrollBy({top:e*2,behavior:`smooth`})}}catch{h(),v.default.error({title:`Error`,message:`Failed to load images`})}}
+  `).join(``);c.insertAdjacentHTML(`beforeend`,t),d.refresh()}function p(){c.innerHTML=``}function m(){l.classList.remove(`hidden`)}function h(){l.classList.add(`hidden`)}function g(){u.classList.remove(`hidden`)}function _(){u.classList.add(`hidden`)}var v=e(r(),1),y=document.querySelector(`.form`),b=y.querySelector(`input[name="search-text"]`),x=``,S=1,C=0;y.addEventListener(`submit`,async e=>{if(e.preventDefault(),x=b.value.trim(),!x)return v.default.error({title:`Error`,message:`Please enter a search term`});S=1,p(),_(),await w()}),u.addEventListener(`click`,async()=>{_(),S+=1,await w()});async function w(){m();try{let e=await s(x,S);if(h(),e.hits.length===0)return _(),v.default.info({title:`Info`,message:`No results found`});if(f(e.hits),C=e.totalHits,S*15<C?g():(_(),v.default.info({title:`Info`,message:`We're sorry, but you've reached the end of search results.`})),S>1){let e=c.firstElementChild.getBoundingClientRect().height;window.scrollBy({top:e*2,behavior:`smooth`})}}catch{h(),v.default.error({title:`Error`,message:`Failed to load images`})}}
 //# sourceMappingURL=index.js.map
